@@ -20,8 +20,8 @@ mapbox_key = 'pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2oyY2M4YW55MDF1YjMzbzhmemIzb290NiJ
 if not mapbox_key:
     raise RuntimeError("Mapbox key not specified! Edit this file and add it.")
 
-lep_shp = 'C:\Users\HamedM.MANAIA.000\PycharmProjects\webPortalPopulation'
-FullPathJson = os.path.join(lep_shp, 'AU_RC_Northland_RegionCorrectFile.json')
+
+FullPathJson = ('https://github.com/HamedMinaeizaeim/MahitahiPopulationHealth/blob/Test/venv/AU_RC_Northland_RegionCorrectFile.json')
 # FullPathJson
 lep_df = gpd.read_file(FullPathJson)
 Test = lep_df.head(1)
@@ -41,9 +41,7 @@ SocialEconmic_df = copy.deepcopy(lep_df)
 
 
 def ImportDataFrameFROMCSV(overlay_choice='Smoking'):
-    fullPathcsv = os.path.join(
-        'C:\Users\HamedM.MANAIA.000\PycharmProjects\webPortalPopulation\PrecentageOFAbnormalityTable',
-        str(overlay_choice) + '.csv')
+    fullPathcsv = 'https://github.com/HamedMinaeizaeim/MahitahiPopulationHealth/blob/Test/venv/'+str(overlay_choice) + '.csv'
     DiseasData = pd.read_csv(fullPathcsv)
     DiseasData['Quarter_Start_Date'] = pd.to_datetime(DiseasData['Quarter_Start_Date'], dayfirst=True)
     DiseasData['Quarter_Start_Date'] = DiseasData['Quarter_Start_Date'].dt.date
@@ -91,7 +89,7 @@ def ReadScocialTable(fullPath):
 
 
 def ValuesforSocialMap(SocialEconmic_df, Choice='Deprivation Index'):
-    fullPath = 'C:\Users\HamedM.MANAIA.000\PycharmProjects\webPortalPopulation\SocialEconomicTable.csv'
+    fullPath = 'https://github.com/HamedMinaeizaeim/MahitahiPopulationHealth/blob/Test/venv/SocialEconomicTable.csv'
     SocialEconomicTable = pd.read_csv(fullPath)
     SocialEconomicTable.set_index('Name', inplace=True)
 
@@ -103,7 +101,7 @@ def ValuesforSocialMap(SocialEconmic_df, Choice='Deprivation Index'):
 
 
 SocialEconomicTable = ReadScocialTable(
-    'C:\Users\HamedM.MANAIA.000\PycharmProjects\webPortalPopulation\SocialEconomicTable.csv')
+    'https://github.com/HamedMinaeizaeim/MahitahiPopulationHealth/blob/Test/venv/SocialEconomicTable.csv')
 lep_dfFilter = valuesforMap(lep_df, year_slider='2018-10-01', overlay_choice='Smoking')
 SocialEconmic_dfFilter = ValuesforSocialMap(SocialEconmic_df, Choice='Deprivation Index')
 
@@ -387,9 +385,7 @@ app.layout = html.Div([
     dash.dependencies.Output('Diseas-value', 'children'),
     [dash.dependencies.Input('overlay-choice', 'value')])
 def UpdateDiseases(overlay_choice):
-    fullPathcsv = os.path.join(
-        'C:\Users\HamedM.MANAIA.000\PycharmProjects\webPortalPopulation\PrecentageOFAbnormalityTable',
-        str(overlay_choice) + '.csv')
+    fullPathcsv = 'https://github.com/HamedMinaeizaeim/MahitahiPopulationHealth/blob/Test/venv/'+str(overlay_choice) + '.csv'
     DiseasData = pd.read_csv(fullPathcsv)
     DiseasData['Quarter_Start_Date'] = pd.to_datetime(DiseasData['Quarter_Start_Date'], dayfirst=True)
     DiseasData['Quarter_Start_Date'] = DiseasData['Quarter_Start_Date'].dt.date
