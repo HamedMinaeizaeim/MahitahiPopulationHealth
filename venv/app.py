@@ -4,12 +4,12 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import geopandas as gpd
-import matplotlib
-import matplotlib.cm as cm
+#import matplotlib
+#import matplotlib.cm as cm
 import plotly.graph_objs as go
 import os
 import random
-from SQLDataFetching import SQLDataFetching
+#from SQLDataFetching import SQLDataFetching
 import time
 from datetime import datetime
 import pandas as pd
